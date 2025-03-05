@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gateway
+  name: filling-service
   namespace: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gateway
+      app: filling-service
   template:
     metadata:
       labels:
-        app: gateway
+        app: filling-service
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "8082"
@@ -30,8 +30,8 @@ spec:
                       - k8s-worker-1
                       - k8s-worker-2
       containers:
-        - name: gateway
-          image: hamgeonwook/gateway:latest
+        - name: filling-service
+          image: hamgeonwook/filling-service:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -61,7 +61,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: gateway
+  name: filling-service
   namespace: backend
 spec:
   ports:
@@ -74,18 +74,18 @@ spec:
       targetPort: 8082
       protocol: TCP
   selector:
-    app: gateway
+    app: filling-service
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: gateway-hpa
+  name: filling-service-hpa
   namespace: backend
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: gateway
+    name: filling-service
   minReplicas: 1
   maxReplicas: 5
   metrics:
@@ -95,4 +95,3 @@ spec:
         target:
           type: Utilization
           averageUtilization: 50
-
