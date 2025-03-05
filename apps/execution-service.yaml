@@ -34,6 +34,7 @@ spec:
         - name: execution-service
           image: hamgeonwook/execution-service:43
           imagePullPolicy: Always
+          command: ["sleep", "infinity"]
           ports:
             - containerPort: 8080
               name: spring

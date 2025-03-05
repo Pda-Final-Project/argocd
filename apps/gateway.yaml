@@ -34,6 +34,7 @@ spec:
         - name: gateway
           image: hamgeonwook/gateway:43
           imagePullPolicy: Always
+          command: ["sleep", "infinity"]
           ports:
             - containerPort: 8080
               name: spring

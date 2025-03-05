@@ -34,6 +34,7 @@ spec:
         - name: user-service
           image: hamgeonwook/user-service:43
           imagePullPolicy: Always
+          command: ["sleep", "infinity"]
           ports:
             - containerPort: 8080
               name: spring
