@@ -34,24 +34,11 @@ spec:
         - name: matching-service
           image: hamgeonwook/matching-service:72
           imagePullPolicy: Always
-          command: ["sleep", "infinity"]
           ports:
             - containerPort: 8080
               name: spring
             - containerPort: 8082
               name: spring-actuator
-          livenessProbe:
-            httpGet:
-              path: /actuator/health/liveness
-              port: 8082
-            initialDelaySeconds: 10
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /actuator/health/readiness
-              port: 8082
-            initialDelaySeconds: 5
-            periodSeconds: 3
           resources:
             requests:
               cpu: 100m
