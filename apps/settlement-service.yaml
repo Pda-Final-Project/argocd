@@ -32,7 +32,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: settlement-service
-          image: hamgeonwook/settlement-service:74
+          image: hamgeonwook/settlement-service:77
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
