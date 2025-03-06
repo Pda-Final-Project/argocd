@@ -31,7 +31,7 @@ spec:
                       - k8s-worker-2
       containers:
         - name: execution-service
-          image: hamgeonwook/execution-service:86
+          image: hamgeonwook/execution-service:87
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
