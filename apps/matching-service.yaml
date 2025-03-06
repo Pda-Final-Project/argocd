@@ -32,7 +32,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: matching-service
-          image: hamgeonwook/matching-service:72
+          image: hamgeonwook/matching-service:73
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
