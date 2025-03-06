@@ -20,11 +20,11 @@ spec:
       imagePullSecrets:
         - name: docker-pull-secret
       affinity:
-        podAntiAffinity:
+        nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: app
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
                     operator: In
                     values:
                       - k8s-worker-1
