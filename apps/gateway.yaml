@@ -32,7 +32,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: gateway
-          image: hamgeonwook/gateway:43
+          image: hamgeonwook/gateway:72
           imagePullPolicy: Always
           command: ["sleep", "infinity"]
           ports:

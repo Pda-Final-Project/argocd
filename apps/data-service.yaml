@@ -32,7 +32,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: data-service
-          image: hamgeonwook/data-service:43
+          image: hamgeonwook/data-service:72
           imagePullPolicy: Always
           command: ["sleep", "infinity"]
           ports:

@@ -32,7 +32,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: filling-service
-          image: hamgeonwook/filling-service:43
+          image: hamgeonwook/filling-service:72
           imagePullPolicy: Always
           command: ["sleep", "infinity"]
           ports:

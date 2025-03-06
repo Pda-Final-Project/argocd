@@ -32,7 +32,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: execution-service
-          image: hamgeonwook/execution-service:43
+          image: hamgeonwook/execution-service:72
           imagePullPolicy: Always
           command: ["sleep", "infinity"]
           ports:

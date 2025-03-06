@@ -32,7 +32,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: notification-service
-          image: hamgeonwook/notification-service:43
+          image: hamgeonwook/notification-service:72
           imagePullPolicy: Always
           command: ["sleep", "infinity"]
           ports:
