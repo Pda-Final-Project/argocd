@@ -29,7 +29,6 @@ spec:
                     values:
                       - k8s-worker-1
                       - k8s-worker-2
-              topologyKey: "kubernetes.io/hostname"
       containers:
         - name: filling-service
           image: hamgeonwook/filling-service:84

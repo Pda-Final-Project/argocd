@@ -29,10 +29,9 @@ spec:
                     values:
                       - k8s-worker-1
                       - k8s-worker-2
-              topologyKey: "kubernetes.io/hostname"
       containers:
         - name: user-service
-          image: hamgeonwook/user-service:84
+          image: hamgeonwook/user-service:72
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
