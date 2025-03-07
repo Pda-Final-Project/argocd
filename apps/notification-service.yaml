@@ -31,7 +31,7 @@ spec:
                       - k8s-worker-2
       containers:
         - name: notification-service
-          image: hamgeonwook/notification-service:107
+          image: hamgeonwook/notification-service:108
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
