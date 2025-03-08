@@ -63,7 +63,7 @@ spec:
       port: 8082
       targetPort: 8082
       protocol: TCP
-  type: LoadBalancer
+  type: ClusterIP
 ---
 # apiVersion: autoscaling/v2
 # kind: HorizontalPodAutoscaler
