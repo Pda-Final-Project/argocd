@@ -52,17 +52,18 @@ metadata:
   name: gateway
   namespace: backend
 spec:
+  selector:
+    app: gateway
   ports:
     - name: spring
-      port: 8080
+      port: 80
       targetPort: 8080
       protocol: TCP
     - name: spring-actuator
       port: 8082
       targetPort: 8082
       protocol: TCP
-  selector:
-    app: gateway
+  type: LoadBalancer
 ---
 # apiVersion: autoscaling/v2
 # kind: HorizontalPodAutoscaler
