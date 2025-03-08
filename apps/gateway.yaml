@@ -31,7 +31,7 @@ spec:
                       - k8s-worker-2
       containers:
         - name: gateway
-          image: hamgeonwook/gateway:114
+          image: hamgeonwook/gateway:115
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
