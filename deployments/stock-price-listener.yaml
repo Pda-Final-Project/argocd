@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-price-listener
+  namespace: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-price-listener
+  template:
+    metadata:
+      labels:
+        app: stock-price-listener
+    spec:
+      imagePullSecrets:
+        - name: docker-pull-secret
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - k8s-worker-1
+                      - k8s-worker-2
+      containers:
+      - name: python-crawler
+        image: hamgeonwook/python-crawler:latest
+        imagePullPolicy: Always
+        command: ["python", "get_stock_price.py"]
+        resources:
+          requests:
+            cpu: 300m
+            memory: 512Mi
+          limits:
+            cpu: 1
+            memory: 1.5Gi
+      restartPolicy: Always

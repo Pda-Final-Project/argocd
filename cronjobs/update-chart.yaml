@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: update-chart
+  namespace: backend
+spec:
+  schedule: "30 6 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+            - name: docker-pull-secret
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: In
+                        values:
+                          - k8s-worker-1
+                          - k8s-worker-2
+          containers:
+          - name: python-crawler
+            image: hamgeonwook/python-crawler:latest
+            imagePullPolicy: Always
+            command: ["python", "update_chart.py"]
+            resources:
+              requests:
+                cpu: 200m
+                memory: 256Mi
+              limits:
+                cpu: 500m
+                memory: 512Mi
+          restartPolicy: Never

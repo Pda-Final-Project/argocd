@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: update-fillings
+  namespace: backend
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+            - name: docker-pull-secret
+          containers:
+          - name: python-crawler
+            image: hamgeonwook/python-crawler:latest
+            imagePullPolicy: Always
+            command: ["python", "update_fillings.py"]
+            resources:
+              requests:
+                cpu: 200m
+                memory: 256Mi
+              limits:
+                cpu: 500m
+                memory: 512Mi
+          restartPolicy: Never
