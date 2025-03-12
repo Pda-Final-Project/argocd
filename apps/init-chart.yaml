@@ -22,17 +22,7 @@ spec:
       - name: python-crawler
         image: hamgeonwook/python-crawler:164
         imagePullPolicy: Always
-        command:
-          - sh
-          - -c
-          - |
-            echo "Waiting for data-service Pod to be Ready..."
-            until [ "$(kubectl get pod -n backend -l app=data-service -o jsonpath='{.items[0].status.conditions[?(@.type=="Ready")].status}')" == "True" ]; do
-              echo "Waiting for data-service to be ready..."
-              sleep 5
-            done
-            echo "data-service is Ready! Running init_chart.py..."
-            python init_chart.py
+        command: ["python", "init_chart.py"]
         resources:
           requests:
             cpu: 200m
