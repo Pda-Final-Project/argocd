@@ -16,6 +16,12 @@ spec:
             image: hamgeonwook/python-crawler:164
             imagePullPolicy: Always
             command: ["python", "update_fillings.py"]
+            env:
+              - name: OPENAI_API_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: openai-api-key
+                    key: OPENAI_API_KEY
             resources:
               requests:
                 cpu: 200m
