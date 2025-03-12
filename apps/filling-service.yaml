@@ -31,7 +31,7 @@ spec:
                       - k8s-worker-2
       containers:
         - name: filling-service
-          image: hamgeonwook/filling-service:161
+          image: hamgeonwook/filling-service:164
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

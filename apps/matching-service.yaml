@@ -31,7 +31,7 @@ spec:
                       - k8s-worker-2
       containers:
         - name: matching-service
-          image: hamgeonwook/matching-service:161
+          image: hamgeonwook/matching-service:164
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
