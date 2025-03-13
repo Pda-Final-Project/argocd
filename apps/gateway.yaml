@@ -59,6 +59,7 @@ spec:
       port: 8080
       targetPort: 8080
       protocol: TCP
+      nodePort: 32220
     - name: spring-actuator
       port: 8082
       targetPort: 8082
