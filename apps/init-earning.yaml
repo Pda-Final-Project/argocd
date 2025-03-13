@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-earning
+  namespace: backend
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: docker-pull-secret
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - k8s-worker-1
+                      - k8s-worker-2
+      containers:
+      - name: python-crawler
+        image: hamgeonwook/python-crawler:1
+        imagePullPolicy: Always
+        command: ["python", "earning.py"]
+        resources:
+          requests:
+            cpu: 200m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+      restartPolicy: Never
