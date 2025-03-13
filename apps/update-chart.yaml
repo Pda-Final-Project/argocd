@@ -23,7 +23,7 @@ spec:
                           - k8s-worker-2
           containers:
           - name: python-crawler
-            image: hamgeonwook/python-crawler:189
+            image: hamgeonwook/python-crawler:191
             imagePullPolicy: Always
             command: ["python", "update_chart.py"]
             resources:
