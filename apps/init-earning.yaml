@@ -22,7 +22,7 @@ spec:
       - name: python-crawler
         image: hamgeonwook/python-crawler:188
         imagePullPolicy: Always
-        command: ["python", "earning.py"]
+        command: ["python", "init_earning.py"]
         resources:
           requests:
             cpu: 200m
