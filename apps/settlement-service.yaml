@@ -31,7 +31,7 @@ spec:
                       - k8s-worker-2
       containers:
         - name: settlement-service
-          image: hamgeonwook/settlement-service:191
+          image: hamgeonwook/settlement-service:192
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
