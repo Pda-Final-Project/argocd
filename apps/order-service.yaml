@@ -31,7 +31,7 @@ spec:
                       - k8s-worker-2
       containers:
         - name: order-service
-          image: hamgeonwook/order-service:198
+          image: hamgeonwook/order-service:201
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
