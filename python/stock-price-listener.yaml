@@ -27,7 +27,7 @@ spec:
                       - k8s-worker-2
       containers:
       - name: python-crawler
-        image: hamgeonwook/python-crawler:216
+        image: hamgeonwook/python-crawler:217
         imagePullPolicy: Always
         command: ["python", "get_stock_price.py"]
         resources:
