@@ -20,7 +20,7 @@ spec:
                       - k8s-worker-2
       containers:
       - name: python-crawler
-        image: hamgeonwook/python-crawler:261
+        image: hamgeonwook/python-crawler:263
         imagePullPolicy: Always
         command: ["python", "init_earning.py"]
         resources:
