@@ -13,7 +13,7 @@ spec:
             - name: docker-pull-secret
           containers:
           - name: python-crawler
-            image: hamgeonwook/python-crawler:284
+            image: hamgeonwook/python-crawler:285
             imagePullPolicy: Always
             command: ["python", "update_news.py"]
             resources:
