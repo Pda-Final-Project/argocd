@@ -11,6 +11,16 @@ spec:
         spec:
           imagePullSecrets:
             - name: docker-pull-secret
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: In
+                        values:
+                          - k8s-worker-1
+                          - k8s-worker-2
           containers:
           - name: python-crawler
             image: hamgeonwook/python-crawler:310
