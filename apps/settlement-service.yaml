@@ -4,7 +4,7 @@ metadata:
   name: settlement-service
   namespace: backend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: settlement-service
